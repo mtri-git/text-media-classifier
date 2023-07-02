@@ -19,3 +19,4 @@ def text_classifier():
     return {
         "category": res[0],
     }
+
