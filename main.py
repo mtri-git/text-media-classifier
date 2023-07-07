@@ -11,12 +11,17 @@ def hello_world():
     return 'Hello from Flask!'
 
 # route for text classier with underthesea with post method input text
-@app.route('/text_classifier', methods=['POST'])
+@app.route('/text-classifier', methods=['POST'])
 def text_classifier():
+    from underthesea import text_normalize
     from underthesea import classify
+    from underthesea import sentiment
     text = request.form['text']
+    text = text_normalize(text)
     res = classify(text)
+    text_sentiment = sentiment(text)
     return {
         "category": res[0],
+        "sentiment": text_sentiment
     }
 
