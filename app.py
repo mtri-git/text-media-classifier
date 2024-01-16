@@ -7,9 +7,9 @@ from underthesea import text_normalize, classify, sentiment
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
+def default():
     return {
-            'message': 'Hello from Flask!'
+            'message': 'text classifier',
         }
 
 # route for text classier with underthesea with post method input text
